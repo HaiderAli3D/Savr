@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
 import '../data/models.dart';
 import '../services/receipt_service.dart';
+import '../services/receipt_exceptions.dart';
 
 class AppState extends ChangeNotifier {
   final ReceiptService _service = ReceiptService();
@@ -49,8 +50,21 @@ class AppState extends ChangeNotifier {
       final base64Image = base64Encode(bytes);
 
       _report = await _service.analyzeReceipt(base64Image, _preferences);
-    } catch (e) {
+    } on ApiNotConfiguredException catch (e) {
       _error = e.toString();
+      debugPrint('Configuration error: $e');
+    } on NetworkException catch (e) {
+      _error = e.toString();
+      debugPrint('Network error: $e');
+    } on ApiException catch (e) {
+      _error = e.toString();
+      debugPrint('API error: $e');
+    } on ParsingException catch (e) {
+      _error = e.toString();
+      debugPrint('Parsing error: $e');
+    } catch (e) {
+      _error = 'An unexpected error occurred: ${e.toString()}';
+      debugPrint('Unexpected error: $e');
     } finally {
       _isAnalyzing = false;
       notifyListeners();

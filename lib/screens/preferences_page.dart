@@ -120,9 +120,34 @@ class _PreferencesPageState extends State<PreferencesPage> {
              if (appState.error != null)
               Padding(
                 padding: const EdgeInsets.only(top: 16),
-                child: Text(
-                  'Error: ${appState.error}',
-                  style: TextStyle(color: Theme.of(context).colorScheme.error),
+                child: Container(
+                  padding: const EdgeInsets.all(AppSpacing.md),
+                  decoration: BoxDecoration(
+                    color: Colors.red.shade50,
+                    borderRadius: BorderRadius.circular(AppRadius.sm),
+                    border: Border.all(color: Colors.red.shade200),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        Icons.error_outline,
+                        color: Colors.red.shade700,
+                        size: 20,
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          appState.error!,
+                          style: TextStyle(
+                            color: Colors.red.shade900,
+                            fontSize: 13,
+                            height: 1.4,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
           ],
