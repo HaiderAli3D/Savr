@@ -1,8 +1,8 @@
 {
   "items": {
     "semi_skimmed_milk_4_pints": {
-      "name": "Semi‑skimmed Milk 4 Pints (2.272 L)",
-      "unit": "2.272 L",
+      "name": "Semi\u2011skimmed Milk 4\u00a0Pints (2.272\u00a0L)",
+      "unit": "2.272\u00a0L",
       "prices": {
         "Tesco": {
           "price": 1.65,
@@ -16,24 +16,11 @@
           "price": 1.45,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "semi",
-        "skimmed",
-        "milk",
-        "4",
-        "pint",
-        "2",
-        "272",
-        "l"
-      ],
-      "category": "dairy",
-      "brand": "generic",
-      "searchText": "semi skimmed milk 4 pint 2 272 l"
+      }
     },
     "thick_sliced_white_bread_800g": {
-      "name": "Thick‑sliced White Bread (800 g)",
-      "unit": "800 g",
+      "name": "Thick\u2011sliced White Bread (800\u00a0g)",
+      "unit": "800\u00a0g",
       "prices": {
         "Tesco": {
           "price": 0.75,
@@ -47,22 +34,11 @@
           "price": 0.75,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "thick",
-        "sliced",
-        "white",
-        "bread",
-        "800",
-        "g"
-      ],
-      "category": "bakery",
-      "brand": "generic",
-      "searchText": "thick sliced white bread 800 g"
+      }
     },
     "salted_butter_250g": {
-      "name": "Salted Butter (250 g)",
-      "unit": "250 g",
+      "name": "Salted Butter (250\u00a0g)",
+      "unit": "250\u00a0g",
       "prices": {
         "Tesco": {
           "price": 1.99,
@@ -76,20 +52,11 @@
           "price": 1.69,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "salted",
-        "butter",
-        "250",
-        "g"
-      ],
-      "category": "dairy",
-      "brand": "generic",
-      "searchText": "salted butter 250 g"
+      }
     },
     "plain_flour_1_5kg": {
-      "name": "Plain Flour (1.5 kg)",
-      "unit": "1.5 kg",
+      "name": "Plain Flour (1.5\u00a0kg)",
+      "unit": "1.5\u00a0kg",
       "prices": {
         "Tesco": {
           "price": 0.8,
@@ -103,17 +70,7 @@
           "price": 0.79,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "plain",
-        "flour",
-        "1",
-        "5",
-        "kg"
-      ],
-      "category": "baking",
-      "brand": "generic",
-      "searchText": "plain flour 1 5 kg"
+      }
     },
     "semi_skimmed_milk_var1": {
       "name": "Tesco British Semi Skimmed Milk 2.272L (4 pints)",
@@ -131,21 +88,7 @@
           "price": 1.45,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "british",
-        "semi",
-        "skimmed",
-        "milk",
-        "2",
-        "272l",
-        "4",
-        "pint"
-      ],
-      "category": "dairy",
-      "brand": "tesco",
-      "searchText": "tesco british semi skimmed milk 2 272l 4 pint"
+      }
     },
     "semi_skimmed_milk_var2": {
       "name": "Sainsbury's British Semi Skimmed Milk 2.27L (4 pint)",
@@ -163,22 +106,7 @@
           "price": 1.3,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "british",
-        "semi",
-        "skimmed",
-        "milk",
-        "2",
-        "27l",
-        "4",
-        "pint"
-      ],
-      "category": "dairy",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s british semi skimmed milk 2 27l 4 pint"
+      }
     },
     "semi_skimmed_milk_var3": {
       "name": "Lidl Dairy Manor Semi Skimmed Milk 2.272L (4 pints)",
@@ -196,22 +124,7 @@
           "price": 1.74,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "dairy",
-        "manor",
-        "semi",
-        "skimmed",
-        "milk",
-        "2",
-        "272l",
-        "4",
-        "pint"
-      ],
-      "category": "dairy",
-      "brand": "lidl",
-      "searchText": "lidl dairy manor semi skimmed milk 2 272l 4 pint"
+      }
     },
     "semi_skimmed_milk_var4": {
       "name": "Tesco Organic British Semi Skimmed Milk 2.272L (4 pints)",
@@ -229,22 +142,7 @@
           "price": 1.16,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "british",
-        "semi",
-        "skimmed",
-        "milk",
-        "2",
-        "272l",
-        "4",
-        "pint"
-      ],
-      "category": "dairy",
-      "brand": "tesco",
-      "searchText": "tesco organic british semi skimmed milk 2 272l 4 pint"
+      }
     },
     "semi_skimmed_milk_var5": {
       "name": "Tesco Everyday Value Semi Skimmed Milk 2.272L (4 pints)",
@@ -262,22 +160,7 @@
           "price": 1.52,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "semi",
-        "skimmed",
-        "milk",
-        "2",
-        "272l",
-        "4",
-        "pint"
-      ],
-      "category": "dairy",
-      "brand": "tesco",
-      "searchText": "tesco everyday value semi skimmed milk 2 272l 4 pint"
+      }
     },
     "thick_sliced_white_bread_var1": {
       "name": "Tesco Toastie Thick White Bread 800g",
@@ -295,18 +178,7 @@
           "price": 0.75,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "toastie",
-        "thick",
-        "white",
-        "bread",
-        "800g"
-      ],
-      "category": "bakery",
-      "brand": "tesco",
-      "searchText": "tesco toastie thick white bread 800g"
+      }
     },
     "thick_sliced_white_bread_var2": {
       "name": "Sainsbury's Toastie Thick White Bread 800g",
@@ -324,19 +196,7 @@
           "price": 0.68,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "toastie",
-        "thick",
-        "white",
-        "bread",
-        "800g"
-      ],
-      "category": "bakery",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s toastie thick white bread 800g"
+      }
     },
     "thick_sliced_white_bread_var3": {
       "name": "Lidl Rowan Hill Thick White Bread 800g",
@@ -354,19 +214,7 @@
           "price": 0.9,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "rowan",
-        "hill",
-        "thick",
-        "white",
-        "bread",
-        "800g"
-      ],
-      "category": "bakery",
-      "brand": "lidl",
-      "searchText": "lidl rowan hill thick white bread 800g"
+      }
     },
     "thick_sliced_white_bread_var4": {
       "name": "Tesco Organic White Bread 800g",
@@ -384,17 +232,7 @@
           "price": 0.6,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "white",
-        "bread",
-        "800g"
-      ],
-      "category": "bakery",
-      "brand": "tesco",
-      "searchText": "tesco organic white bread 800g"
+      }
     },
     "thick_sliced_white_bread_var5": {
       "name": "Tesco Everyday Value White Bread 800g",
@@ -412,18 +250,7 @@
           "price": 0.79,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "white",
-        "bread",
-        "800g"
-      ],
-      "category": "bakery",
-      "brand": "tesco",
-      "searchText": "tesco everyday value white bread 800g"
+      }
     },
     "salted_butter_var1": {
       "name": "Tesco British Salted Butter 250g",
@@ -441,17 +268,7 @@
           "price": 1.69,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "british",
-        "salted",
-        "butter",
-        "250g"
-      ],
-      "category": "dairy",
-      "brand": "tesco",
-      "searchText": "tesco british salted butter 250g"
+      }
     },
     "salted_butter_var2": {
       "name": "Sainsbury's British Salted Butter 250g",
@@ -469,18 +286,7 @@
           "price": 1.52,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "british",
-        "salted",
-        "butter",
-        "250g"
-      ],
-      "category": "dairy",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s british salted butter 250g"
+      }
     },
     "salted_butter_var3": {
       "name": "Lidl Dairy Manor Salted Butter 250g",
@@ -498,18 +304,7 @@
           "price": 2.03,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "dairy",
-        "manor",
-        "salted",
-        "butter",
-        "250g"
-      ],
-      "category": "dairy",
-      "brand": "lidl",
-      "searchText": "lidl dairy manor salted butter 250g"
+      }
     },
     "salted_butter_var4": {
       "name": "Tesco Organic Salted Butter 250g",
@@ -527,17 +322,7 @@
           "price": 1.35,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "salted",
-        "butter",
-        "250g"
-      ],
-      "category": "dairy",
-      "brand": "tesco",
-      "searchText": "tesco organic salted butter 250g"
+      }
     },
     "salted_butter_var5": {
       "name": "Tesco Everyday Value Salted Butter 250g",
@@ -555,18 +340,7 @@
           "price": 1.77,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "salted",
-        "butter",
-        "250g"
-      ],
-      "category": "dairy",
-      "brand": "tesco",
-      "searchText": "tesco everyday value salted butter 250g"
+      }
     },
     "plain_flour_var1": {
       "name": "Tesco Plain Flour 1.5kg",
@@ -584,17 +358,7 @@
           "price": 0.79,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "plain",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "tesco",
-      "searchText": "tesco plain flour 1 5kg"
+      }
     },
     "plain_flour_var2": {
       "name": "Sainsbury's Plain Flour 1.5kg",
@@ -612,18 +376,7 @@
           "price": 0.71,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "plain",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s plain flour 1 5kg"
+      }
     },
     "plain_flour_var3": {
       "name": "Lidl Belbake Plain Flour 1.5kg",
@@ -641,18 +394,7 @@
           "price": 0.95,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "belbake",
-        "plain",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "lidl",
-      "searchText": "lidl belbake plain flour 1 5kg"
+      }
     },
     "plain_flour_var4": {
       "name": "Tesco Organic Plain Flour 1.5kg",
@@ -670,18 +412,7 @@
           "price": 0.63,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "plain",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "tesco",
-      "searchText": "tesco organic plain flour 1 5kg"
+      }
     },
     "plain_flour_var5": {
       "name": "Tesco Everyday Value Plain Flour 1.5kg",
@@ -699,19 +430,7 @@
           "price": 0.83,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "plain",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "tesco",
-      "searchText": "tesco everyday value plain flour 1 5kg"
+      }
     },
     "self_raising_flour_var1": {
       "name": "Tesco Self Raising Flour 1.5kg",
@@ -729,18 +448,7 @@
           "price": 0.8,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "self",
-        "raising",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "tesco",
-      "searchText": "tesco self raising flour 1 5kg"
+      }
     },
     "self_raising_flour_var2": {
       "name": "Sainsbury's Self Raising Flour 1.5kg",
@@ -758,19 +466,7 @@
           "price": 0.72,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "self",
-        "raising",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s self raising flour 1 5kg"
+      }
     },
     "self_raising_flour_var3": {
       "name": "Lidl Belbake Self Raising Flour 1.5kg",
@@ -788,19 +484,7 @@
           "price": 0.96,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "belbake",
-        "self",
-        "raising",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "lidl",
-      "searchText": "lidl belbake self raising flour 1 5kg"
+      }
     },
     "self_raising_flour_var4": {
       "name": "Tesco Organic Self Raising Flour 1.5kg",
@@ -818,19 +502,7 @@
           "price": 0.64,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "self",
-        "raising",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "tesco",
-      "searchText": "tesco organic self raising flour 1 5kg"
+      }
     },
     "self_raising_flour_var5": {
       "name": "Tesco Everyday Value Self Raising Flour 1.5kg",
@@ -848,20 +520,7 @@
           "price": 0.84,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "self",
-        "raising",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "baking",
-      "brand": "tesco",
-      "searchText": "tesco everyday value self raising flour 1 5kg"
+      }
     },
     "strong_white_flour_var1": {
       "name": "Tesco Strong White Bread Flour 1.5kg",
@@ -872,26 +531,14 @@
           "currency": "GBP"
         },
         "Sainsbury's": {
-          "price": 1,
+          "price": 1.0,
           "currency": "GBP"
         },
         "Lidl": {
           "price": 1.39,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "strong",
-        "white",
-        "bread",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "bakery",
-      "brand": "tesco",
-      "searchText": "tesco strong white bread flour 1 5kg"
+      }
     },
     "strong_white_flour_var2": {
       "name": "Sainsbury's Strong White Bread Flour 1.5kg",
@@ -909,20 +556,7 @@
           "price": 1.25,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "strong",
-        "white",
-        "bread",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "bakery",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s strong white bread flour 1 5kg"
+      }
     },
     "strong_white_flour_var3": {
       "name": "Lidl Belbake Strong White Bread Flour 1.5kg",
@@ -940,20 +574,7 @@
           "price": 1.67,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "belbake",
-        "strong",
-        "white",
-        "bread",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "bakery",
-      "brand": "lidl",
-      "searchText": "lidl belbake strong white bread flour 1 5kg"
+      }
     },
     "strong_white_flour_var4": {
       "name": "Tesco Organic Strong White Bread Flour 1.5kg",
@@ -971,20 +592,7 @@
           "price": 1.11,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "strong",
-        "white",
-        "bread",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "bakery",
-      "brand": "tesco",
-      "searchText": "tesco organic strong white bread flour 1 5kg"
+      }
     },
     "strong_white_flour_var5": {
       "name": "Tesco Everyday Value Strong White Bread Flour 1.5kg",
@@ -1002,21 +610,7 @@
           "price": 1.46,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "strong",
-        "white",
-        "bread",
-        "flour",
-        "1",
-        "5kg"
-      ],
-      "category": "bakery",
-      "brand": "tesco",
-      "searchText": "tesco everyday value strong white bread flour 1 5kg"
+      }
     },
     "golden_savoury_rice_var1": {
       "name": "Tesco Hearty Food Co. Golden Savoury Rice 120g",
@@ -1034,20 +628,7 @@
           "price": 0.59,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "hearty",
-        "food",
-        "co",
-        "golden",
-        "savoury",
-        "rice",
-        "120g"
-      ],
-      "category": "grains",
-      "brand": "tesco",
-      "searchText": "tesco hearty food co golden savoury rice 120g"
+      }
     },
     "golden_savoury_rice_var2": {
       "name": "Sainsbury's Golden Vegetable Savoury Rice 105g",
@@ -1065,19 +646,7 @@
           "price": 0.53,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "golden",
-        "vegetable",
-        "savoury",
-        "rice",
-        "105g"
-      ],
-      "category": "grains",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s golden vegetable savoury rice 105g"
+      }
     },
     "golden_savoury_rice_var3": {
       "name": "Lidl Newgate Golden Vegetable Savoury Rice 120g",
@@ -1095,19 +664,7 @@
           "price": 0.71,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "newgate",
-        "golden",
-        "vegetable",
-        "savoury",
-        "rice",
-        "120g"
-      ],
-      "category": "grains",
-      "brand": "lidl",
-      "searchText": "lidl newgate golden vegetable savoury rice 120g"
+      }
     },
     "golden_savoury_rice_var4": {
       "name": "Tesco Organic Golden Savoury Rice 120g",
@@ -1125,18 +682,7 @@
           "price": 0.47,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "golden",
-        "savoury",
-        "rice",
-        "120g"
-      ],
-      "category": "grains",
-      "brand": "tesco",
-      "searchText": "tesco organic golden savoury rice 120g"
+      }
     },
     "golden_savoury_rice_var5": {
       "name": "Tesco Everyday Value Golden Savoury Rice 120g",
@@ -1154,19 +700,7 @@
           "price": 0.62,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "golden",
-        "savoury",
-        "rice",
-        "120g"
-      ],
-      "category": "grains",
-      "brand": "tesco",
-      "searchText": "tesco everyday value golden savoury rice 120g"
+      }
     },
     "table_salt_var1": {
       "name": "Tesco Table Salt 750g",
@@ -1184,16 +718,7 @@
           "price": 0.65,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "table",
-        "salt",
-        "750g"
-      ],
-      "category": "seasoning",
-      "brand": "tesco",
-      "searchText": "tesco table salt 750g"
+      }
     },
     "table_salt_var2": {
       "name": "Sainsbury's Table Salt Bottle 750g",
@@ -1211,18 +736,7 @@
           "price": 0.59,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "table",
-        "salt",
-        "bottle",
-        "750g"
-      ],
-      "category": "seasoning",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s table salt bottle 750g"
+      }
     },
     "table_salt_var3": {
       "name": "Lidl Chantesel Table Salt 500g",
@@ -1240,17 +754,7 @@
           "price": 0.78,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "chantesel",
-        "table",
-        "salt",
-        "500g"
-      ],
-      "category": "seasoning",
-      "brand": "lidl",
-      "searchText": "lidl chantesel table salt 500g"
+      }
     },
     "table_salt_var4": {
       "name": "Tesco Sea Salt 750g",
@@ -1268,16 +772,7 @@
           "price": 0.52,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "sea",
-        "salt",
-        "750g"
-      ],
-      "category": "seasoning",
-      "brand": "tesco",
-      "searchText": "tesco sea salt 750g"
+      }
     },
     "table_salt_var5": {
       "name": "Tesco Everyday Value Table Salt 750g",
@@ -1295,18 +790,7 @@
           "price": 0.68,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "table",
-        "salt",
-        "750g"
-      ],
-      "category": "seasoning",
-      "brand": "tesco",
-      "searchText": "tesco everyday value table salt 750g"
+      }
     },
     "instant_hot_chocolate_var1": {
       "name": "Tesco Instant Hot Chocolate 400g",
@@ -1324,17 +808,7 @@
           "price": 1.55,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "instant",
-        "hot",
-        "chocolate",
-        "400g"
-      ],
-      "category": "beverages",
-      "brand": "tesco",
-      "searchText": "tesco instant hot chocolate 400g"
+      }
     },
     "instant_hot_chocolate_var2": {
       "name": "Sainsbury's Instant Hot Chocolate Drink 400g",
@@ -1352,26 +826,14 @@
           "price": 1.4,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "instant",
-        "hot",
-        "chocolate",
-        "drink",
-        "400g"
-      ],
-      "category": "beverages",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s instant hot chocolate drink 400g"
+      }
     },
     "instant_hot_chocolate_var3": {
       "name": "Lidl Choceur Instant Hot Chocolate 400g",
       "unit": "400 g",
       "prices": {
         "Tesco": {
-          "price": 3,
+          "price": 3.0,
           "currency": "GBP"
         },
         "Sainsbury's": {
@@ -1382,25 +844,14 @@
           "price": 1.86,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "choceur",
-        "instant",
-        "hot",
-        "chocolate",
-        "400g"
-      ],
-      "category": "beverages",
-      "brand": "lidl",
-      "searchText": "lidl choceur instant hot chocolate 400g"
+      }
     },
     "instant_hot_chocolate_var4": {
       "name": "Tesco Organic Instant Hot Chocolate 400g",
       "unit": "400 g",
       "prices": {
         "Tesco": {
-          "price": 2,
+          "price": 2.0,
           "currency": "GBP"
         },
         "Sainsbury's": {
@@ -1411,18 +862,7 @@
           "price": 1.24,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "instant",
-        "hot",
-        "chocolate",
-        "400g"
-      ],
-      "category": "beverages",
-      "brand": "tesco",
-      "searchText": "tesco organic instant hot chocolate 400g"
+      }
     },
     "instant_hot_chocolate_var5": {
       "name": "Tesco Everyday Value Hot Chocolate 400g",
@@ -1440,18 +880,7 @@
           "price": 1.63,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "hot",
-        "chocolate",
-        "400g"
-      ],
-      "category": "beverages",
-      "brand": "tesco",
-      "searchText": "tesco everyday value hot chocolate 400g"
+      }
     },
     "instant_porridge_pot_var1": {
       "name": "Tesco Instant Oats Golden Syrup Porridge Pot 55g",
@@ -1469,20 +898,7 @@
           "price": 0.41,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "instant",
-        "oats",
-        "golden",
-        "syrup",
-        "porridge",
-        "pot",
-        "55g"
-      ],
-      "category": "breakfast",
-      "brand": "tesco",
-      "searchText": "tesco instant oats golden syrup porridge pot 55g"
+      }
     },
     "instant_porridge_pot_var2": {
       "name": "Sainsbury's Porridge Pot Original 50g",
@@ -1500,18 +916,7 @@
           "price": 0.37,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "porridge",
-        "pot",
-        "original",
-        "50g"
-      ],
-      "category": "breakfast",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s porridge pot original 50g"
+      }
     },
     "instant_porridge_pot_var3": {
       "name": "Lidl Crownfield Oh So Easy Original Porridge 50g",
@@ -1529,20 +934,7 @@
           "price": 0.49,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "crownfield",
-        "oh",
-        "so",
-        "easy",
-        "original",
-        "porridge",
-        "50g"
-      ],
-      "category": "breakfast",
-      "brand": "lidl",
-      "searchText": "lidl crownfield oh so easy original porridge 50g"
+      }
     },
     "instant_porridge_pot_var4": {
       "name": "Tesco Organic Instant Porridge Pot 55g",
@@ -1560,18 +952,7 @@
           "price": 0.33,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "instant",
-        "porridge",
-        "pot",
-        "55g"
-      ],
-      "category": "breakfast",
-      "brand": "tesco",
-      "searchText": "tesco organic instant porridge pot 55g"
+      }
     },
     "instant_porridge_pot_var5": {
       "name": "Tesco Everyday Value Instant Porridge Pot 55g",
@@ -1589,19 +970,7 @@
           "price": 0.43,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "instant",
-        "porridge",
-        "pot",
-        "55g"
-      ],
-      "category": "breakfast",
-      "brand": "tesco",
-      "searchText": "tesco everyday value instant porridge pot 55g"
+      }
     },
     "corn_flakes_var1": {
       "name": "Tesco Corn Flakes 500g",
@@ -1619,16 +988,7 @@
           "price": 0.75,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "corn",
-        "flakes",
-        "500g"
-      ],
-      "category": "breakfast",
-      "brand": "tesco",
-      "searchText": "tesco corn flakes 500g"
+      }
     },
     "corn_flakes_var2": {
       "name": "Sainsbury's Cornflakes 500g",
@@ -1646,16 +1006,7 @@
           "price": 0.68,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "cornflakes",
-        "500g"
-      ],
-      "category": "breakfast",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s cornflakes 500g"
+      }
     },
     "corn_flakes_var3": {
       "name": "Lidl Crownfield Cornflakes 500g",
@@ -1673,16 +1024,7 @@
           "price": 0.9,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "crownfield",
-        "cornflakes",
-        "500g"
-      ],
-      "category": "breakfast",
-      "brand": "lidl",
-      "searchText": "lidl crownfield cornflakes 500g"
+      }
     },
     "corn_flakes_var4": {
       "name": "Tesco Organic Corn Flakes 500g",
@@ -1700,46 +1042,25 @@
           "price": 0.6,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "corn",
-        "flakes",
-        "500g"
-      ],
-      "category": "breakfast",
-      "brand": "tesco",
-      "searchText": "tesco organic corn flakes 500g"
+      }
     },
     "corn_flakes_var5": {
       "name": "Tesco Everyday Value Corn Flakes 500g",
       "unit": "500 g",
       "prices": {
         "Tesco": {
-          "price": 1,
+          "price": 1.0,
           "currency": "GBP"
         },
         "Sainsbury's": {
-          "price": 1,
+          "price": 1.0,
           "currency": "GBP"
         },
         "Lidl": {
           "price": 0.79,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "corn",
-        "flakes",
-        "500g"
-      ],
-      "category": "breakfast",
-      "brand": "tesco",
-      "searchText": "tesco everyday value corn flakes 500g"
+      }
     },
     "baked_beans_var1": {
       "name": "Tesco Baked Beans in Tomato Sauce 420g",
@@ -1757,19 +1078,7 @@
           "price": 0.28,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "baked",
-        "beans",
-        "in",
-        "tomato",
-        "sauce",
-        "420g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco baked beans in tomato sauce 420g"
+      }
     },
     "baked_beans_var2": {
       "name": "Sainsbury's Baked Beans in Tomato Sauce 400g",
@@ -1787,20 +1096,7 @@
           "price": 0.25,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "baked",
-        "beans",
-        "in",
-        "tomato",
-        "sauce",
-        "400g"
-      ],
-      "category": "canned",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s baked beans in tomato sauce 400g"
+      }
     },
     "baked_beans_var3": {
       "name": "Lidl Everyday Essentials Baked Beans 420g",
@@ -1818,18 +1114,7 @@
           "price": 0.34,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "everyday",
-        "essentials",
-        "baked",
-        "beans",
-        "420g"
-      ],
-      "category": "canned",
-      "brand": "lidl",
-      "searchText": "lidl everyday essentials baked beans 420g"
+      }
     },
     "baked_beans_var4": {
       "name": "Tesco Organic Baked Beans 420g",
@@ -1847,17 +1132,7 @@
           "price": 0.22,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "baked",
-        "beans",
-        "420g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco organic baked beans 420g"
+      }
     },
     "baked_beans_var5": {
       "name": "Tesco Everyday Value Baked Beans 420g",
@@ -1875,18 +1150,7 @@
           "price": 0.29,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "baked",
-        "beans",
-        "420g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco everyday value baked beans 420g"
+      }
     },
     "peach_slices_var1": {
       "name": "Tesco Peach Slices in Light Syrup 410g",
@@ -1904,19 +1168,7 @@
           "price": 0.34,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "peach",
-        "slices",
-        "in",
-        "light",
-        "syrup",
-        "410g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco peach slices in light syrup 410g"
+      }
     },
     "peach_slices_var2": {
       "name": "Sainsbury's Peach Slices in Light Syrup 411g",
@@ -1934,20 +1186,7 @@
           "price": 0.31,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "peach",
-        "slices",
-        "in",
-        "light",
-        "syrup",
-        "411g"
-      ],
-      "category": "canned",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s peach slices in light syrup 411g"
+      }
     },
     "peach_slices_var3": {
       "name": "Lidl Simply Peach Slices in Syrup 410g",
@@ -1965,19 +1204,7 @@
           "price": 0.41,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "simply",
-        "peach",
-        "slices",
-        "in",
-        "syrup",
-        "410g"
-      ],
-      "category": "canned",
-      "brand": "lidl",
-      "searchText": "lidl simply peach slices in syrup 410g"
+      }
     },
     "peach_slices_var4": {
       "name": "Tesco Organic Peach Slices in Light Syrup 410g",
@@ -1995,20 +1222,7 @@
           "price": 0.27,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "peach",
-        "slices",
-        "in",
-        "light",
-        "syrup",
-        "410g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco organic peach slices in light syrup 410g"
+      }
     },
     "peach_slices_var5": {
       "name": "Tesco Everyday Value Peach Slices 410g",
@@ -2026,18 +1240,7 @@
           "price": 0.36,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "peach",
-        "slices",
-        "410g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco everyday value peach slices 410g"
+      }
     },
     "chickpeas_var1": {
       "name": "Tesco Chickpeas in Water 400g",
@@ -2055,17 +1258,7 @@
           "price": 0.49,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "chickpeas",
-        "in",
-        "water",
-        "400g"
-      ],
-      "category": "legumes",
-      "brand": "tesco",
-      "searchText": "tesco chickpeas in water 400g"
+      }
     },
     "chickpeas_var2": {
       "name": "Sainsbury's Chickpeas in Water 400g",
@@ -2083,18 +1276,7 @@
           "price": 0.44,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "chickpeas",
-        "in",
-        "water",
-        "400g"
-      ],
-      "category": "legumes",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s chickpeas in water 400g"
+      }
     },
     "chickpeas_var3": {
       "name": "Lidl Freshona Chickpeas in Water 400g",
@@ -2112,18 +1294,7 @@
           "price": 0.59,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "freshona",
-        "chickpeas",
-        "in",
-        "water",
-        "400g"
-      ],
-      "category": "legumes",
-      "brand": "lidl",
-      "searchText": "lidl freshona chickpeas in water 400g"
+      }
     },
     "chickpeas_var4": {
       "name": "Tesco Organic Chickpeas in Water 400g",
@@ -2141,18 +1312,7 @@
           "price": 0.39,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "chickpeas",
-        "in",
-        "water",
-        "400g"
-      ],
-      "category": "legumes",
-      "brand": "tesco",
-      "searchText": "tesco organic chickpeas in water 400g"
+      }
     },
     "chickpeas_var5": {
       "name": "Tesco Everyday Value Chickpeas in Water 400g",
@@ -2170,19 +1330,7 @@
           "price": 0.51,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "chickpeas",
-        "in",
-        "water",
-        "400g"
-      ],
-      "category": "legumes",
-      "brand": "tesco",
-      "searchText": "tesco everyday value chickpeas in water 400g"
+      }
     },
     "chopped_tomatoes_var1": {
       "name": "Tesco Italian Chopped Tomatoes 400g",
@@ -2200,17 +1348,7 @@
           "price": 0.49,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "italian",
-        "chopped",
-        "tomatoes",
-        "400g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco italian chopped tomatoes 400g"
+      }
     },
     "chopped_tomatoes_var2": {
       "name": "Sainsbury's Italian Chopped Tomatoes 400g",
@@ -2228,18 +1366,7 @@
           "price": 0.44,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "italian",
-        "chopped",
-        "tomatoes",
-        "400g"
-      ],
-      "category": "canned",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s italian chopped tomatoes 400g"
+      }
     },
     "chopped_tomatoes_var3": {
       "name": "Lidl Baresa Chopped Tomatoes 400g",
@@ -2257,17 +1384,7 @@
           "price": 0.59,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "baresa",
-        "chopped",
-        "tomatoes",
-        "400g"
-      ],
-      "category": "canned",
-      "brand": "lidl",
-      "searchText": "lidl baresa chopped tomatoes 400g"
+      }
     },
     "chopped_tomatoes_var4": {
       "name": "Tesco Organic Chopped Tomatoes 400g",
@@ -2285,17 +1402,7 @@
           "price": 0.39,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "chopped",
-        "tomatoes",
-        "400g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco organic chopped tomatoes 400g"
+      }
     },
     "chopped_tomatoes_var5": {
       "name": "Tesco Everyday Value Chopped Tomatoes 400g",
@@ -2313,18 +1420,7 @@
           "price": 0.51,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "chopped",
-        "tomatoes",
-        "400g"
-      ],
-      "category": "canned",
-      "brand": "tesco",
-      "searchText": "tesco everyday value chopped tomatoes 400g"
+      }
     },
     "spaghetti_var1": {
       "name": "Tesco Spaghetti 500g",
@@ -2342,15 +1438,7 @@
           "price": 0.75,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "spaghetti",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "tesco",
-      "searchText": "tesco spaghetti 500g"
+      }
     },
     "spaghetti_var2": {
       "name": "Sainsbury's Spaghetti 500g",
@@ -2368,16 +1456,7 @@
           "price": 0.68,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "spaghetti",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s spaghetti 500g"
+      }
     },
     "spaghetti_var3": {
       "name": "Lidl Cucina Spaghetti 500g",
@@ -2395,16 +1474,7 @@
           "price": 0.9,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "cucina",
-        "spaghetti",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "lidl",
-      "searchText": "lidl cucina spaghetti 500g"
+      }
     },
     "spaghetti_var4": {
       "name": "Tesco Wholewheat Spaghetti 500g",
@@ -2422,16 +1492,7 @@
           "price": 0.6,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "wholewheat",
-        "spaghetti",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "tesco",
-      "searchText": "tesco wholewheat spaghetti 500g"
+      }
     },
     "spaghetti_var5": {
       "name": "Tesco Everyday Value Spaghetti 500g",
@@ -2449,17 +1510,7 @@
           "price": 0.79,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "spaghetti",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "tesco",
-      "searchText": "tesco everyday value spaghetti 500g"
+      }
     },
     "pasta_shapes_var1": {
       "name": "Tesco Pasta Shapes 500g",
@@ -2477,16 +1528,7 @@
           "price": 0.41,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "pasta",
-        "shapes",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "tesco",
-      "searchText": "tesco pasta shapes 500g"
+      }
     },
     "pasta_shapes_var2": {
       "name": "Sainsbury's Penne Pasta 500g",
@@ -2504,17 +1546,7 @@
           "price": 0.37,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "penne",
-        "pasta",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s penne pasta 500g"
+      }
     },
     "pasta_shapes_var3": {
       "name": "Lidl Simply Penne Pasta 500g",
@@ -2532,17 +1564,7 @@
           "price": 0.49,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "simply",
-        "penne",
-        "pasta",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "lidl",
-      "searchText": "lidl simply penne pasta 500g"
+      }
     },
     "pasta_shapes_var4": {
       "name": "Tesco Wholewheat Pasta Shapes 500g",
@@ -2560,17 +1582,7 @@
           "price": 0.33,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "wholewheat",
-        "pasta",
-        "shapes",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "tesco",
-      "searchText": "tesco wholewheat pasta shapes 500g"
+      }
     },
     "pasta_shapes_var5": {
       "name": "Tesco Everyday Value Pasta Shapes 500g",
@@ -2588,18 +1600,7 @@
           "price": 0.43,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "pasta",
-        "shapes",
-        "500g"
-      ],
-      "category": "pasta",
-      "brand": "tesco",
-      "searchText": "tesco everyday value pasta shapes 500g"
+      }
     },
     "long_grain_rice_var1": {
       "name": "Tesco Long Grain Rice 1kg",
@@ -2617,17 +1618,7 @@
           "price": 0.52,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "long",
-        "grain",
-        "rice",
-        "1kg"
-      ],
-      "category": "grains",
-      "brand": "tesco",
-      "searchText": "tesco long grain rice 1kg"
+      }
     },
     "long_grain_rice_var2": {
       "name": "Sainsbury's Long Grain Rice 1kg",
@@ -2645,18 +1636,7 @@
           "price": 0.47,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "long",
-        "grain",
-        "rice",
-        "1kg"
-      ],
-      "category": "grains",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s long grain rice 1kg"
+      }
     },
     "long_grain_rice_var3": {
       "name": "Lidl Worldwide Long Grain White Rice 1kg",
@@ -2674,19 +1654,7 @@
           "price": 0.62,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "worldwide",
-        "long",
-        "grain",
-        "white",
-        "rice",
-        "1kg"
-      ],
-      "category": "grains",
-      "brand": "lidl",
-      "searchText": "lidl worldwide long grain white rice 1kg"
+      }
     },
     "long_grain_rice_var4": {
       "name": "Tesco Organic Long Grain Rice 1kg",
@@ -2704,18 +1672,7 @@
           "price": 0.42,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "long",
-        "grain",
-        "rice",
-        "1kg"
-      ],
-      "category": "grains",
-      "brand": "tesco",
-      "searchText": "tesco organic long grain rice 1kg"
+      }
     },
     "long_grain_rice_var5": {
       "name": "Tesco Everyday Value Long Grain Rice 1kg",
@@ -2733,19 +1690,7 @@
           "price": 0.55,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "long",
-        "grain",
-        "rice",
-        "1kg"
-      ],
-      "category": "grains",
-      "brand": "tesco",
-      "searchText": "tesco everyday value long grain rice 1kg"
+      }
     },
     "vegetable_oil_var1": {
       "name": "Tesco Vegetable Oil 1L",
@@ -2763,16 +1708,7 @@
           "price": 1.85,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "vegetable",
-        "oil",
-        "1l"
-      ],
-      "category": "cooking",
-      "brand": "tesco",
-      "searchText": "tesco vegetable oil 1l"
+      }
     },
     "vegetable_oil_var2": {
       "name": "Sainsbury's Vegetable Oil 1L",
@@ -2790,17 +1726,7 @@
           "price": 1.67,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "vegetable",
-        "oil",
-        "1l"
-      ],
-      "category": "cooking",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s vegetable oil 1l"
+      }
     },
     "vegetable_oil_var3": {
       "name": "Lidl Vita D'Or Pure Vegetable Oil 1L",
@@ -2818,20 +1744,7 @@
           "price": 2.22,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "vita",
-        "d",
-        "or",
-        "pure",
-        "vegetable",
-        "oil",
-        "1l"
-      ],
-      "category": "cooking",
-      "brand": "lidl",
-      "searchText": "lidl vita d or pure vegetable oil 1l"
+      }
     },
     "vegetable_oil_var4": {
       "name": "Tesco Organic Vegetable Oil 1L",
@@ -2849,17 +1762,7 @@
           "price": 1.48,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "vegetable",
-        "oil",
-        "1l"
-      ],
-      "category": "cooking",
-      "brand": "tesco",
-      "searchText": "tesco organic vegetable oil 1l"
+      }
     },
     "vegetable_oil_var5": {
       "name": "Tesco Everyday Value Vegetable Oil 1L",
@@ -2877,18 +1780,7 @@
           "price": 1.94,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "vegetable",
-        "oil",
-        "1l"
-      ],
-      "category": "cooking",
-      "brand": "tesco",
-      "searchText": "tesco everyday value vegetable oil 1l"
+      }
     },
     "tomato_ketchup_var1": {
       "name": "Tesco Tomato Ketchup 450g",
@@ -2906,16 +1798,7 @@
           "price": 0.69,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "tomato",
-        "ketchup",
-        "450g"
-      ],
-      "category": "condiments",
-      "brand": "tesco",
-      "searchText": "tesco tomato ketchup 450g"
+      }
     },
     "tomato_ketchup_var2": {
       "name": "Sainsbury's Tomato Ketchup 450g",
@@ -2933,17 +1816,7 @@
           "price": 0.62,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "sainsbury",
-        "s",
-        "tomato",
-        "ketchup",
-        "450g"
-      ],
-      "category": "condiments",
-      "brand": "sainsburys",
-      "searchText": "sainsbury s tomato ketchup 450g"
+      }
     },
     "tomato_ketchup_var3": {
       "name": "Lidl Batts Tomato Ketchup 650g",
@@ -2961,17 +1834,7 @@
           "price": 0.83,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "lidl",
-        "batts",
-        "tomato",
-        "ketchup",
-        "650g"
-      ],
-      "category": "condiments",
-      "brand": "lidl",
-      "searchText": "lidl batts tomato ketchup 650g"
+      }
     },
     "tomato_ketchup_var4": {
       "name": "Tesco Organic Tomato Ketchup 450g",
@@ -2989,17 +1852,7 @@
           "price": 0.55,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "organic",
-        "tomato",
-        "ketchup",
-        "450g"
-      ],
-      "category": "condiments",
-      "brand": "tesco",
-      "searchText": "tesco organic tomato ketchup 450g"
+      }
     },
     "tomato_ketchup_var5": {
       "name": "Tesco Everyday Value Tomato Ketchup 450g",
@@ -3017,18 +1870,7 @@
           "price": 0.72,
           "currency": "GBP"
         }
-      },
-      "tokens": [
-        "tesco",
-        "everyday",
-        "value",
-        "tomato",
-        "ketchup",
-        "450g"
-      ],
-      "category": "condiments",
-      "brand": "tesco",
-      "searchText": "tesco everyday value tomato ketchup 450g"
+      }
     }
   }
 }
