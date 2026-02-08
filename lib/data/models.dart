@@ -46,6 +46,7 @@ class BasketItem {
   final double price;
   final String quantity; // e.g., "100ml", "250g"
   final String category;
+  final String store; // Store where this item is available
 
   BasketItem({
     required this.id,
@@ -54,6 +55,7 @@ class BasketItem {
     required this.price,
     required this.quantity,
     required this.category,
+    required this.store,
   });
 
   factory BasketItem.fromJson(Map<String, dynamic> json) {
@@ -64,6 +66,7 @@ class BasketItem {
       price: (json['price'] as num?)?.toDouble() ?? 0.0,
       quantity: json['quantity'] ?? '',
       category: json['category'] ?? '',
+      store: json['store'] ?? 'Unknown',
     );
   }
 }
@@ -84,6 +87,18 @@ class ComparisonItem {
   });
 }
 
+class StoreComparison {
+  final String bestStore;
+  final double extraSavings;
+  final int extraPercent;
+
+  StoreComparison({
+    required this.bestStore,
+    required this.extraSavings,
+    required this.extraPercent,
+  });
+}
+
 class SavingsReport {
   final String id;
   final DateTime date;
@@ -91,6 +106,7 @@ class SavingsReport {
   final double totalOriginalPrice;
   final double totalSavings;
   final double percentageSaved;
+  final StoreComparison? bestStoreComparison;
 
   SavingsReport({
     required this.id,
@@ -99,5 +115,6 @@ class SavingsReport {
     required this.totalOriginalPrice,
     required this.totalSavings,
     required this.percentageSaved,
+    this.bestStoreComparison,
   });
 }

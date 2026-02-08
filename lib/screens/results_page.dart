@@ -79,16 +79,17 @@ class ResultsPage extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Store Comparison Card
-          StoreComparisonCard(
-            bestStore: 'Aldi',
-            extraSavings: 8.50,
-            extraPercent: 25,
-            loading: false,
-            onCompare: () {
-              // Navigate to comparison page when created
-            },
-          ),
+          // Store Comparison Card - Use AI-provided data
+          if (report.bestStoreComparison != null)
+            StoreComparisonCard(
+              bestStore: report.bestStoreComparison!.bestStore,
+              extraSavings: report.bestStoreComparison!.extraSavings,
+              extraPercent: report.bestStoreComparison!.extraPercent,
+              loading: false,
+              onCompare: () {
+                // Navigate to comparison page when created
+              },
+            ),
 
           const SizedBox(height: 20),
         ],
@@ -290,6 +291,7 @@ class _ExpandableProductCardState extends State<_ExpandableProductCard> {
                               widget.item.original.price - bestAlt.price,
                               true,
                               bestAlt.category,
+                              bestAlt.store,
                             ),
                             // Add more alternatives here if available
                           ],
@@ -311,6 +313,7 @@ class _ExpandableProductCardState extends State<_ExpandableProductCard> {
     double savings,
     bool isCheapest,
     String category,
+    String store,
   ) {
     return Container(
       width: 144,
@@ -327,16 +330,37 @@ class _ExpandableProductCardState extends State<_ExpandableProductCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            category.toUpperCase(),
-            style: const TextStyle(
-              fontSize: 9,
-              fontWeight: FontWeight.w600,
-              color: AppColors.mutedForeground,
-              letterSpacing: 1.5,
-            ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  category.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 9,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.mutedForeground,
+                    letterSpacing: 1.5,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  store,
+                  style: const TextStyle(
+                    fontSize: 8,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.primary,
+                  ),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 4),
           Text(
