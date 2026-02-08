@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme, // We are primarily using a custom dark-blue look, but this allows system preference if we supported it fully. 
       // Actually, my pages force specific backgorund colors mostly, so themeMode might not matter as much, but good practice.
-      themeMode: ThemeMode.light, // Forcing light mode for now as my manual colors rely on it being predictable or I handled it manually.
+      themeMode: ThemeMode.dark, // Using dark theme to match the React app
       routerConfig: AppRouter.router,
     );
   }
