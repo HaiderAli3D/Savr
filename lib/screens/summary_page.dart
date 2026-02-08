@@ -5,6 +5,8 @@ import 'package:intl/intl.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
 import '../data/models.dart';
+import '../widgets/animated_counter.dart';
+import '../widgets/glass_card.dart';
 
 class SummaryPage extends StatelessWidget {
   const SummaryPage({super.key});
@@ -15,18 +17,29 @@ class SummaryPage extends StatelessWidget {
     final report = appState.report;
 
     if (report == null) {
-      // Should not happen if correctly navigated
-      return const Scaffold(body: Center(child: Text("No report data")));
+      return Scaffold(
+        backgroundColor: AppColors.background,
+        body: Center(
+          child: Text(
+            "No report data",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+        ),
+      );
     }
 
-    final currency = NumberFormat.simpleCurrency(name: 'GBP'); // Using GBP as per screenshot
+    final currency = NumberFormat.simpleCurrency(name: 'GBP');
 
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        title: const Text('Savings Summary'),
-         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+        title: Text(
+          'SAVINGS SUMMARY',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        backgroundColor: AppColors.background,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, size: 18),
           onPressed: () => context.pop(),
         ),
       ),
@@ -34,108 +47,162 @@ class SummaryPage extends StatelessWidget {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(AppSpacing.lg),
+              padding: AppSpacing.page,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                   // Hero Savings Card
-                   Container(
-                     width: double.infinity,
-                     padding: const EdgeInsets.symmetric(vertical: AppSpacing.xl, horizontal: AppSpacing.lg),
-                     decoration: BoxDecoration(
-                       color: Colors.white,
-                       borderRadius: BorderRadius.circular(AppRadius.lg),
-                     ),
-                     child: Column(
-                       children: [
-                         const Text(
-                           'You could have saved:',
-                           style: TextStyle(
-                             color: AppColors.textSecondary,
-                             fontSize: 16,
-                             fontWeight: FontWeight.w500,
-                           ),
-                         ),
-                         const SizedBox(height: AppSpacing.sm),
-                         Text(
-                           currency.format(report.totalSavings),
-                           style: const TextStyle(
-                             color: AppColors.primary,
-                             fontSize: 48,
-                             fontWeight: FontWeight.bold,
-                           ),
-                         ),
-                         const SizedBox(height: AppSpacing.sm),
-                         Text(
-                           'That\'s ${report.percentageSaved.toStringAsFixed(0)}% off your total shop!',
-                           style: const TextStyle(
-                             color: AppColors.textSecondary,
-                             fontSize: 14,
-                             fontWeight: FontWeight.w500,
-                           ),
-                         ),
-                       ],
-                     ),
-                   ),
-                   
-                   const SizedBox(height: AppSpacing.xl),
-                   
-                   const Text(
-                     'Breakdown',
-                     style: TextStyle(
-                       color: Colors.white,
-                       fontSize: 18,
-                       fontWeight: FontWeight.bold,
-                     ),
-                   ),
-                   
-                   const SizedBox(height: AppSpacing.md),
-                   
-                   // List Items
-                   ListView.separated(
-                     shrinkWrap: true,
-                     physics: const NeverScrollableScrollPhysics(),
-                     itemCount: report.substitutions.length,
-                     separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
-                     itemBuilder: (context, index) {
-                       final item = report.substitutions[index];
-                       return _buildComparisonCard(context, item, currency);
-                     },
-                   ),
-                   
-                   // Padding for button
-                   const SizedBox(height: 100),
-                 ],
+                children: [
+                  // Hero Savings Card
+                  GlassCard(
+                    glow: GlowType.primary,
+                    padding: const EdgeInsets.all(AppSpacing.xl),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            AppColors.primary,
+                            AppColors.primary.withOpacity(0.8),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(AppRadius.lg),
+                      ),
+                      padding: const EdgeInsets.all(AppSpacing.xl),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.savings_outlined,
+                                color: Colors.white.withOpacity(0.9),
+                                size: 20,
+                              ),
+                              const SizedBox(width: AppSpacing.sm),
+                              Text(
+                                'Total Savings',
+                                style: TextStyle(
+                                  color: Colors.white.withOpacity(0.9),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  letterSpacing: 0.5,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: AppSpacing.md),
+                          AnimatedCounter(
+                            value: report.totalSavings,
+                            prefix: '£',
+                            decimals: 2,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 56,
+                              fontWeight: FontWeight.bold,
+                              height: 1.1,
+                            ),
+                          ),
+                          const SizedBox(height: AppSpacing.sm),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: AppSpacing.md,
+                              vertical: AppSpacing.sm,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(AppRadius.pill),
+                            ),
+                            child: Text(
+                              '${report.percentageSaved.toStringAsFixed(0)}% off your total shop',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  
+                  const SizedBox(height: AppSpacing.xl),
+                  
+                  // Section Header
+                  Row(
+                    children: [
+                      Container(
+                        width: 4,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          borderRadius: BorderRadius.circular(AppRadius.sm),
+                        ),
+                      ),
+                      const SizedBox(width: AppSpacing.sm),
+                      Text(
+                        'Suggested Alternatives',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ],
+                  ),
+                  
+                  const SizedBox(height: AppSpacing.md),
+                  
+                  Text(
+                    '${report.substitutions.length} items with better alternatives',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  
+                  const SizedBox(height: AppSpacing.lg),
+                  
+                  // Comparison Cards List
+                  ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: report.substitutions.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.md),
+                    itemBuilder: (context, index) {
+                      final item = report.substitutions[index];
+                      return _buildComparisonCard(context, item, currency);
+                    },
+                  ),
+                  
+                  const SizedBox(height: AppSpacing.xxl),
+                ],
               ),
             ),
           ),
           
           // Sticky Bottom Button
           Container(
-            padding: const EdgeInsets.all(AppSpacing.lg),
+            padding: AppSpacing.page,
             decoration: BoxDecoration(
-              color: AppColors.primary,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.2),
-                  blurRadius: 10,
-                  offset: const Offset(0, -5),
-                )
-              ],
+              color: AppColors.surface,
+              border: Border(
+                top: BorderSide(
+                  color: AppColors.border,
+                  width: 1,
+                ),
+              ),
             ),
-            child: SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
+            child: SafeArea(
+              top: false,
+              child: ElevatedButton.icon(
                 onPressed: () {
-                  // In a real app, this might show more details
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Full Detailed Report Downloaded!')),
+                    SnackBar(
+                      content: const Text('Report exported successfully!'),
+                      backgroundColor: AppColors.success,
+                      behavior: SnackBarBehavior.floating,
+                    ),
                   );
                 },
+                icon: const Icon(Icons.file_download_outlined, size: 20),
+                label: const Text('Export Full Report'),
                 style: ElevatedButton.styleFrom(
-                   backgroundColor: const Color(0xFF0F52BA), // Sapphire
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-                child: const Text('See Full Report >'),
               ),
             ),
           ),
@@ -145,94 +212,170 @@ class SummaryPage extends StatelessWidget {
   }
 
   Widget _buildComparisonCard(BuildContext context, ComparisonItem item, NumberFormat currency) {
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.md),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(AppRadius.md),
-      ),
+    final savings = item.original.price - item.alternative.price;
+    final percentOff = ((savings / item.original.price) * 100).round();
+    
+    return GlassCard(
+      padding: const EdgeInsets.all(AppSpacing.lg),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Header Row
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                padding: const EdgeInsets.all(AppSpacing.sm),
+                decoration: BoxDecoration(
+                  color: AppColors.surfaceVariant,
+                  borderRadius: BorderRadius.circular(AppRadius.sm),
+                ),
+                child: Icon(
+                  Icons.shopping_cart_outlined,
+                  size: 20,
+                  color: AppColors.textSecondary,
+                ),
+              ),
+              const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: Text(
                   item.original.name,
-                  style: const TextStyle(
-                    color: AppColors.textPrimary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        currency.format(item.original.price),
-                        style: const TextStyle(
-                          color: AppColors.textSecondary,
-                          decoration: TextDecoration.lineThrough,
-                          fontSize: 14,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      const Icon(Icons.arrow_forward_ios, size: 10, color: AppColors.textTertiary),
-                      const SizedBox(width: 8),
-                      Text(
-                        currency.format(item.alternative.price),
-                        style: const TextStyle(
-                          color: AppColors.textPrimary, // Or green?
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
               ),
             ],
           ),
           
-          const SizedBox(height: AppSpacing.sm),
+          const SizedBox(height: AppSpacing.lg),
           
-          // Tags
-          Wrap(
-            spacing: 8,
-            children: item.tags.map((tag) => Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: const Color(0xFF334155), // Dark Slate
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Text(
-                tag,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 10, 
-                  fontWeight: FontWeight.w600
+          // Price Comparison
+          Container(
+            padding: const EdgeInsets.all(AppSpacing.md),
+            decoration: BoxDecoration(
+              color: AppColors.surfaceVariant,
+              borderRadius: BorderRadius.circular(AppRadius.sm),
+            ),
+            child: Row(
+              children: [
+                // Original Price
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Original',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        currency.format(item.original.price),
+                        style: TextStyle(
+                          color: AppColors.textSecondary,
+                          decoration: TextDecoration.lineThrough,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )).toList(),
+                
+                // Arrow
+                Icon(
+                  Icons.arrow_forward,
+                  color: AppColors.textTertiary,
+                  size: 20,
+                ),
+                
+                const SizedBox(width: AppSpacing.md),
+                
+                // Alternative Price
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Text(
+                            'Save $percentOff%',
+                            style: TextStyle(
+                              color: AppColors.success,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        currency.format(item.alternative.price),
+                        style: TextStyle(
+                          color: AppColors.success,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           
-          if (item.reason.isNotEmpty)
-            Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: Text(
-                item.reason,
-                style: const TextStyle(
-                  color: AppColors.textSecondary,
-                  fontSize: 12,
-                  fontStyle: FontStyle.italic,
+          // Tags
+          if (item.tags.isNotEmpty) ...[
+            const SizedBox(height: AppSpacing.md),
+            Wrap(
+              spacing: AppSpacing.sm,
+              runSpacing: AppSpacing.sm,
+              children: item.tags.map((tag) => Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppSpacing.sm,
+                  vertical: 4,
                 ),
-              ),
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(AppRadius.sm),
+                  border: Border.all(
+                    color: AppColors.primary.withOpacity(0.3),
+                    width: 1,
+                  ),
+                ),
+                child: Text(
+                  tag,
+                  style: TextStyle(
+                    color: AppColors.primary,
+                    fontSize: 11,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              )).toList(),
             ),
+          ],
+          
+          // Reason
+          if (item.reason.isNotEmpty) ...[
+            const SizedBox(height: AppSpacing.md),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(
+                  Icons.info_outline,
+                  size: 16,
+                  color: AppColors.textTertiary,
+                ),
+                const SizedBox(width: AppSpacing.sm),
+                Expanded(
+                  child: Text(
+                    item.reason,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ],
       ),
     );

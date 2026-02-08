@@ -6,91 +6,81 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
-import '../nav.dart';
+import '../widgets/animated_bottom_nav.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/secondary_button.dart';
 
 class ScanReceiptPage extends StatelessWidget {
   const ScanReceiptPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Access state
     final appState = context.watch<AppState>();
     
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary, // Dark background for scan page
-      appBar: AppBar(
-        title: const Text('Scan Your Receipt'),
-        // No back button on first page, but if pushed:
-        leading: context.canPop() ? IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () => context.pop(),
-        ) : null,
-      ),
-      body: Column(
-        children: [
-          const SizedBox(height: AppSpacing.lg),
-          // Receipt Preview / Camera Area
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(AppRadius.lg),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.2),
-                    blurRadius: 20,
-                    offset: const Offset(0, 10),
-                  )
-                ],
+      backgroundColor: AppColors.background,
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            // Main content area
+            Expanded(
+              child: Center(
+                child: appState.selectedImage != null
+                    ? _buildImagePreview(context, appState)
+                    : _buildEmptyState(context),
               ),
-              clipBehavior: Clip.antiAlias,
+            ),
+
+            // Bottom Navigation
+            const AnimatedBottomNav(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImagePreview(BuildContext context, AppState appState) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          // Image preview
+          ClipRRect(
+            borderRadius: BorderRadius.circular(AppRadius.lg),
+            child: Container(
+              constraints: const BoxConstraints(maxHeight: 500),
+              decoration: BoxDecoration(
+                border: Border.all(color: AppColors.border),
+                borderRadius: BorderRadius.circular(AppRadius.lg),
+              ),
               child: Stack(
-                fit: StackFit.expand,
                 children: [
-                  if (appState.selectedImage != null)
-                     kIsWeb 
+                  kIsWeb
                       ? Image.network(
                           appState.selectedImage!.path,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.contain,
                         )
                       : Image.file(
                           File(appState.selectedImage!.path),
-                          fit: BoxFit.cover,
-                        )
-                  else
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.receipt_long,
-                          size: 64,
-                          color: AppColors.primary.withValues(alpha: 0.2),
+                          fit: BoxFit.contain,
                         ),
-                        const SizedBox(height: AppSpacing.md),
-                        Text(
-                          'No receipt selected',
-                          style: TextStyle(
-                            color: AppColors.textSecondary,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    ),
                   
-                  // Scanning Overlay (Decorative)
-                  if (appState.selectedImage == null)
+                  // Retake button overlay
                   Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
+                    top: 12,
+                    right: 12,
                     child: Container(
-                      padding: const EdgeInsets.all(AppSpacing.md),
-                      color: Colors.white.withValues(alpha: 0.9),
-                      child: Text(
-                        'Snap a photo of your receipt to get started.',
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyMedium,
+                      decoration: BoxDecoration(
+                        color: AppColors.background.withOpacity(0.9),
+                        borderRadius: BorderRadius.circular(AppRadius.pill),
+                        border: Border.all(color: AppColors.border),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.refresh, size: 20),
+                        color: AppColors.textPrimary,
+                        onPressed: () => context.push('/camera'),
+                        tooltip: 'Retake',
                       ),
                     ),
                   ),
@@ -98,66 +88,87 @@ class ScanReceiptPage extends StatelessWidget {
               ),
             ),
           ),
-          
-          const SizedBox(height: AppSpacing.xl),
-          
-          // Action Buttons
-          if (appState.selectedImage != null)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
-              child: ElevatedButton(
-                onPressed: () => _pickImage(context, ImageSource.camera),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1E293B), // Darker slate
-                  minimumSize: const Size(double.infinity, 50),
-                ),
-                child: const Text('Retake or Confirm >'),
-              ),
-            )
-          else 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
-              child: ElevatedButton.icon(
-                onPressed: () => _pickImage(context, ImageSource.camera),
-                icon: const Icon(Icons.camera_alt),
-                label: const Text('Take Photo'),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                ),
-              ),
-            ),
 
-          SizedBox(height: AppSpacing.md),
-          
-          if (appState.selectedImage == null)
-            TextButton(
-              onPressed: () => _pickImage(context, ImageSource.gallery),
-              child: const Text(
-                'Upload from Gallery',
-                style: TextStyle(color: Colors.white70),
-              ),
-            ),
-            
-          const SizedBox(height: AppSpacing.xl),
+          const SizedBox(height: 24),
 
-          // Next Button
-          if (appState.selectedImage != null)
-             Padding(
-              padding: const EdgeInsets.only(bottom: AppSpacing.xl, left: AppSpacing.lg, right: AppSpacing.lg),
-              child: TextButton(
-                onPressed: () {
-                  context.push('/preferences');
-                },
-                child: const Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+          // Continue Button
+          PrimaryButton(
+            label: 'Continue',
+            icon: Icons.arrow_forward,
+            fullWidth: true,
+            onPressed: () => context.push('/preferences'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildEmptyState(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(32),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // Empty icon
+          Container(
+            padding: const EdgeInsets.all(48),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppColors.primary.withOpacity(0.1),
+                  AppColors.primary.withOpacity(0.05),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: AppColors.primary.withOpacity(0.2),
+                width: 1,
               ),
             ),
+            child: Icon(
+              Icons.receipt_long_outlined,
+              size: 64,
+              color: AppColors.primary.withOpacity(0.7),
+            ),
+          ),
+
+          const SizedBox(height: 32),
+
+          Text(
+            'No receipt scanned yet',
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
+
+          const SizedBox(height: 12),
+
+          Text(
+            'Take a photo or upload an image to get started',
+            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+
+          const SizedBox(height: 40),
+
+          // Camera Button
+          PrimaryButton(
+            label: 'Take Photo',
+            icon: Icons.camera_alt,
+            fullWidth: true,
+            onPressed: () => context.push('/camera'),
+          ),
+
+          const SizedBox(height: 16),
+
+          // Gallery Button
+          SecondaryButton(
+            label: 'Upload from Gallery',
+            icon: Icons.photo_library_outlined,
+            fullWidth: true,
+            onPressed: () => _pickImage(context, ImageSource.gallery),
+          ),
         ],
       ),
     );
@@ -166,12 +177,24 @@ class ScanReceiptPage extends StatelessWidget {
   Future<void> _pickImage(BuildContext context, ImageSource source) async {
     final picker = ImagePicker();
     try {
-      final XFile? image = await picker.pickImage(source: source);
+      final XFile? image = await picker.pickImage(
+        source: source,
+        maxWidth: 1920,
+        maxHeight: 1920,
+        imageQuality: 85,
+      );
       if (image != null && context.mounted) {
         context.read<AppState>().setImage(image);
       }
     } catch (e) {
-      debugPrint('Error picking image: $e');
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error: ${e.toString()}'),
+            backgroundColor: AppColors.error,
+          ),
+        );
+      }
     }
   }
 }
