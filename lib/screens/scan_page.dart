@@ -6,172 +6,344 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import '../state/app_state.dart';
 import '../theme.dart';
-import '../nav.dart';
+import '../widgets/bottom_nav_bar.dart';
+import '../widgets/camera_viewfinder.dart';
+import '../widgets/scan_line.dart';
+import '../widgets/shutter_flash.dart';
 
-class ScanReceiptPage extends StatelessWidget {
+enum ScanPhase { camera, captured, processing }
+
+class ScanReceiptPage extends StatefulWidget {
   const ScanReceiptPage({super.key});
 
   @override
+  State<ScanReceiptPage> createState() => _ScanReceiptPageState();
+}
+
+class _ScanReceiptPageState extends State<ScanReceiptPage> {
+  ScanPhase _phase = ScanPhase.camera;
+  bool _showFlash = false;
+  XFile? _capturedImage;
+
+  @override
   Widget build(BuildContext context) {
-    // Access state
     final appState = context.watch<AppState>();
     
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.primary, // Dark background for scan page
-      appBar: AppBar(
-        title: const Text('Scan Your Receipt'),
-        // No back button on first page, but if pushed:
-        leading: context.canPop() ? IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-          onPressed: () => context.pop(),
-        ) : null,
-      ),
-      body: Column(
+      backgroundColor: AppColors.background,
+      body: Stack(
         children: [
-          const SizedBox(height: AppSpacing.lg),
-          // Receipt Preview / Camera Area
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(AppRadius.lg),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.2),
-                    blurRadius: 20,
-                    offset: const Offset(0, 10),
-                  )
-                ],
-              ),
-              clipBehavior: Clip.antiAlias,
-              child: Stack(
-                fit: StackFit.expand,
-                children: [
-                  if (appState.selectedImage != null)
-                     kIsWeb 
-                      ? Image.network(
-                          appState.selectedImage!.path,
-                          fit: BoxFit.cover,
-                        )
-                      : Image.file(
-                          File(appState.selectedImage!.path),
-                          fit: BoxFit.cover,
-                        )
-                  else
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.receipt_long,
-                          size: 64,
-                          color: AppColors.primary.withValues(alpha: 0.2),
-                        ),
-                        const SizedBox(height: AppSpacing.md),
-                        Text(
-                          'No receipt selected',
-                          style: TextStyle(
-                            color: AppColors.textSecondary,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    ),
-                  
-                  // Scanning Overlay (Decorative)
-                  if (appState.selectedImage == null)
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      padding: const EdgeInsets.all(AppSpacing.md),
-                      color: Colors.white.withValues(alpha: 0.9),
-                      child: Text(
-                        'Snap a photo of your receipt to get started.',
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ),
+          // Main camera/image view
+          Positioned.fill(
+            child: _buildCameraView(context, appState),
+          ),
+
+          // Shutter flash effect
+          Positioned.fill(
+            child: ShutterFlash(visible: _showFlash),
+          ),
+
+          // Vignette overlay
+          Positioned.fill(
+            child: IgnorePointer(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    center: Alignment.center,
+                    radius: 0.8,
+                    colors: [
+                      Colors.transparent,
+                      Colors.black.withOpacity(0.6),
+                    ],
+                    stops: const [0.4, 1.0],
                   ),
-                ],
+                ),
               ),
             ),
           ),
-          
-          const SizedBox(height: AppSpacing.xl),
-          
-          // Action Buttons
-          if (appState.selectedImage != null)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
-              child: ElevatedButton(
-                onPressed: () => _pickImage(context, ImageSource.camera),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1E293B), // Darker slate
-                  minimumSize: const Size(double.infinity, 50),
-                ),
-                child: const Text('Retake or Confirm >'),
-              ),
-            )
-          else 
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.xxl),
-              child: ElevatedButton.icon(
-                onPressed: () => _pickImage(context, ImageSource.camera),
-                icon: const Icon(Icons.camera_alt),
-                label: const Text('Take Photo'),
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                ),
-              ),
-            ),
 
-          SizedBox(height: AppSpacing.md),
-          
-          if (appState.selectedImage == null)
-            TextButton(
-              onPressed: () => _pickImage(context, ImageSource.gallery),
-              child: const Text(
-                'Upload from Gallery',
-                style: TextStyle(color: Colors.white70),
-              ),
-            ),
-            
-          const SizedBox(height: AppSpacing.xl),
+          // Camera UI overlay
+          if (_phase == ScanPhase.camera) _buildCameraUI(context),
 
-          // Next Button
-          if (appState.selectedImage != null)
-             Padding(
-              padding: const EdgeInsets.only(bottom: AppSpacing.xl, left: AppSpacing.lg, right: AppSpacing.lg),
-              child: TextButton(
-                onPressed: () {
-                  context.push('/preferences');
-                },
-                child: const Text(
-                  'Next',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
+          // Processing overlay
+          if (_phase == ScanPhase.processing) _buildProcessingUI(context),
+        ],
+      ),
+      bottomNavigationBar: const BottomNavBar(),
+    );
+  }
+
+  Widget _buildCameraView(BuildContext context, AppState appState) {
+    if (_capturedImage != null || appState.selectedImage != null) {
+      final image = _capturedImage ?? appState.selectedImage!;
+      return kIsWeb
+          ? Image.network(image.path, fit: BoxFit.cover)
+          : Image.file(File(image.path), fit: BoxFit.cover);
+    }
+
+    // Placeholder for camera (in real app, would show camera feed)
+    return Container(
+      color: AppColors.background,
+      child: Center(
+        child: Icon(
+          Icons.camera_alt,
+          size: 100,
+          color: AppColors.mutedForeground.withOpacity(0.3),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCameraUI(BuildContext context) {
+    return Positioned.fill(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 60),
+          // Instruction text
+          Text(
+            'ALIGN RECEIPT TO SCAN',
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  color: AppColors.textTertiary,
+                ),
+          ),
+          const SizedBox(height: 40),
+          
+          // Viewfinder frame
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.75,
+            height: MediaQuery.of(context).size.width * 0.75 * 1.5,
+            child: Stack(
+              children: [
+                const CameraViewfinder(),
+                const ScanLine(isActive: true),
+              ],
+            ),
+          ),
+          
+          const Spacer(),
+          
+          // Camera controls
+          Padding(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Upload button
+                _buildControlButton(
+                  icon: Icons.upload_rounded,
+                  label: 'Upload',
+                  onTap: () => _pickImage(context, ImageSource.gallery),
+                ),
+                const SizedBox(width: 40),
+                
+                // Capture button
+                GestureDetector(
+                  onTap: () => _handleCapture(context),
+                  child: Container(
+                    width: 68,
+                    height: 68,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.white.withOpacity(0.3),
+                        width: 2.5,
+                      ),
+                    ),
+                    child: Center(
+                      child: Container(
+                        width: 54,
+                        height: 54,
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                
+                const SizedBox(width: 40),
+                // Spacer to balance layout
+                const SizedBox(width: 44),
+              ],
             ),
+          ),
         ],
       ),
     );
   }
 
+  Widget _buildControlButton({
+    required IconData icon,
+    required String label,
+    required VoidCallback onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white.withOpacity(0.1),
+              border: Border.all(
+                color: Colors.white.withOpacity(0.2),
+                width: 1,
+              ),
+            ),
+            child: Icon(
+              icon,
+              size: 20,
+              color: Colors.white,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 10,
+              fontWeight: FontWeight.w500,
+              color: AppColors.textTertiary,
+              letterSpacing: 1,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProcessingUI(BuildContext context) {
+    return Positioned.fill(
+      child: Stack(
+        children: [
+          // Full-screen scan line
+          const ScanLine(isActive: true),
+          
+          // Status text
+          Positioned(
+            bottom: 120,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 6,
+                      height: 6,
+                      decoration: const BoxDecoration(
+                        color: AppColors.primary,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      'ANALYZING RECEIPT',
+                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            color: AppColors.textSecondary,
+                          ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _handleCapture(BuildContext context) async {
+    setState(() {
+      _showFlash = true;
+    });
+
+    await Future.delayed(const Duration(milliseconds: 250));
+    setState(() {
+      _showFlash = false;
+    });
+
+    // Try to get image from camera
+    final picker = ImagePicker();
+    try {
+      final XFile? image = await picker.pickImage(source: ImageSource.camera);
+      if (image != null && mounted) {
+        setState(() {
+          _capturedImage = image;
+          _phase = ScanPhase.captured;
+        });
+
+        // Brief pause to show captured image
+        await Future.delayed(const Duration(milliseconds: 600));
+
+        // Start processing
+        setState(() {
+          _phase = ScanPhase.processing;
+        });
+
+        // Save to state and navigate
+        if (mounted) {
+          context.read<AppState>().setImage(image);
+          await Future.delayed(const Duration(milliseconds: 1500));
+          if (mounted) {
+            context.push('/preferences');
+          }
+        }
+      }
+    } catch (e) {
+      debugPrint('Error capturing image: $e');
+      if (mounted) {
+        setState(() {
+          _phase = ScanPhase.camera;
+        });
+      }
+    }
+  }
+
   Future<void> _pickImage(BuildContext context, ImageSource source) async {
     final picker = ImagePicker();
     try {
+      setState(() {
+        _showFlash = true;
+      });
+
       final XFile? image = await picker.pickImage(source: source);
-      if (image != null && context.mounted) {
+      
+      setState(() {
+        _showFlash = false;
+      });
+
+      if (image != null && mounted) {
+        setState(() {
+          _capturedImage = image;
+          _phase = ScanPhase.captured;
+        });
+
+        await Future.delayed(const Duration(milliseconds: 600));
+
+        setState(() {
+          _phase = ScanPhase.processing;
+        });
+
         context.read<AppState>().setImage(image);
+        await Future.delayed(const Duration(milliseconds: 1500));
+        
+        if (mounted) {
+          context.push('/preferences');
+        }
       }
     } catch (e) {
       debugPrint('Error picking image: $e');
+      if (mounted) {
+        setState(() {
+          _phase = ScanPhase.camera;
+        });
+      }
     }
   }
 }
